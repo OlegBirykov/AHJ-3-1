@@ -4,7 +4,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
   },
@@ -37,6 +36,15 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: './img/[name].[ext]',
+          },
+        },
+      },
+      {
+        test: /\.(cur)$/i,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: './cursors/[name].[ext]',
           },
         },
       },
